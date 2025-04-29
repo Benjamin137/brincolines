@@ -1,0 +1,29 @@
+services:
+  php:
+    image: php:apache
+    ports:
+      - "2000:80"
+    volumes:
+      - ./code:/var/www/html
+    depends_on:
+      - mysql
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_DB=dbname
+    # 👇 Instala la extensión mysqli y reinicia Apache
+    command: sh -c "docker-php-ext-install mysqli && apache2-foreground"
+
+  mysql:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=dbname
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
