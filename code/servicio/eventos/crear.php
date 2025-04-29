@@ -46,7 +46,8 @@ $result = $stmt->execute(); // Ejecutar la consulta
 
 
 if($result) {
-    echo "EVENTO creado correctamente.";
+    
+    header("Location: ../../../brincolines/vistas/listar.php?tipo=eventos");
 } else {
     echo "Error al crear el brincolin: " . $stmt->error;
 }

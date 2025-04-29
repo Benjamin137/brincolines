@@ -4,6 +4,8 @@ require_once '../conexion.php';
 
 $table = "EVENTOS";
 
+$id = $_GET['id'] ?? null;
+
 $sql = "SELECT *
 FROM $table
 INNER JOIN CLIENTES ON id_cliente = idCliente_evento
@@ -11,6 +13,11 @@ INNER JOIN LUGARES ON id_lugar = idLugar_evento
 INNER JOIN BRINCOLINES ON id_brincolin = idBrincolin_evento
 INNER JOIN TIPOS_EVENTOS ON id_tipoEvento = idTipoEvento_evento
 ";
+
+if ($id) {
+    $sql .= " WHERE id_evento = $id";
+}
+
 $result = $conexion->query($sql);
 
 if ($result->num_rows > 0) {

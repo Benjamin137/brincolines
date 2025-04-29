@@ -42,7 +42,8 @@ $conexion->query($sql);
 if ($conexion->error) {
     echo "Error: " . $conexion->error;
 } else {
-    echo "Actualización exitosa.";
+    header("Location: ../../../brincolines/vistas/listar.php?tipo=eventos");
+    exit;
 }
 
 ?>

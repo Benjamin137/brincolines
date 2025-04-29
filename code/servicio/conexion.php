@@ -1,10 +1,10 @@
 <?php
 
 try {
-    $host = "localhost";     // 'localhosy' 
-    $user = "root";     // 'root'
-    $password = ""; // ''
-    $database = "brincolines";    // 'brincolines'
+    $host = "mysql";     // 'mysql' (nombre del servicio)
+    $user = "root";     // 'user'
+    $password = "rootpassword"; // 'password'
+    $database = "brincolines";    // 'dbname'
 
     // Crear conexión
     $conexion = new mysqli($host, $user, $password, $database);
