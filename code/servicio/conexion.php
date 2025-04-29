@@ -1,11 +1,10 @@
 <?php
 
 try {
-    // Datos de conexión (extraídos de docker-compose.yml)
-    $host = "mysql";     // 'mysql' (nombre del servicio)
-    $user = "root";     // 'user'
-    $password = "rootpassword"; // 'password'
-    $database = "brincolines";    // 'dbname'
+    $host = "localhost";     // 'localhosy' 
+    $user = "root";     // 'root'
+    $password = ""; // ''
+    $database = "brincolines";    // 'brincolines'
 
     // Crear conexión
     $conexion = new mysqli($host, $user, $password, $database);
